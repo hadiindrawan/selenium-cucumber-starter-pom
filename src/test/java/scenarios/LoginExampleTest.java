@@ -14,16 +14,16 @@ public class LoginExampleTest extends BaseTest {
         loginPage = new LoginExamplePage(driver);
         loginPage.goToSite();
     }
-    @When("User enters valid username and password")
-    public void user_enters_valid_username_and_password() {
-        loginPage.inputCredentials("tomsmith", "SuperSecretPassword!");
+    @When("^User enters (.*) and (.*)$")
+    public void user_enters_username_and_password(String username, String password) {
+        loginPage.inputCredentials(username, password);
     }
     @When("User click login button")
     public void user_click_login_button() {
         loginPage.submitLogin();
     }
     @Then("Login message displayed")
-    public void user_redirect_to_home_page_and_success_message_displayed() {
+    public void login_message_displayed() {
         loginPage.verify();
         closeBrowser();
     }

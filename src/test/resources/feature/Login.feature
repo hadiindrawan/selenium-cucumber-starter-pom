@@ -1,6 +1,11 @@
 Feature: Login
-  Scenario: User login with
+  Scenario Outline: Verify user login
     Given User go to login page
-    When User enters valid username and password
+    When User enters <username> and <password>
     And User click login button
     Then Login message displayed
+
+    Examples:
+    | username | password |
+    | tomsmith | SuperSecretPassword! |
+    | test     | password123          |
