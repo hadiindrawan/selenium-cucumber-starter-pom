@@ -10,7 +10,6 @@ public class BaseTest {
     protected WebDriver driver;
 
     public void setup(String browser) {
-        //Create a Chrome driver. All test classes use this.
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
 
